@@ -1,0 +1,135 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+}
+
+body {
+   box-sizing: border-box;
+   height: 100vh;
+   background-image: url(./media/background.webp);
+   background-attachment: fixed;
+   background-size: cover;
+   color: #fff;
+}
+
+.aplayer-controller {
+   background: #0d0923;
+   padding: 5px;
+}
+.aplayer-info {
+   background: #0d0923;
+   margin-left: 90px;
+   height: 90px;
+   padding: 10px 7px 0;
+}
+
+.aplayer .aplayer-lrc:after {
+   bottom: 0;
+   height: 33%;
+   background: #0d0923 !important;
+   filter: none;
+}
+
+.aplayer-lrc-contents {
+   background: #0d0923;
+}
+
+.aplayer .aplayer-lrc:before {
+   top: 0;
+   height: 10%;
+   background: #0d0923 !important;
+
+   filter: none;
+}
+.aplayer .aplayer-list ol li:hover {
+   background: #000000 !important;
+}
+
+.aplayer .aplayer-list ol li {
+   height: 40px !important;
+   line-height: 40px !important;
+   border-top: 1px solid #2c2a2a !important;
+}
+.aplayer .aplayer-list ol li.aplayer-list-light {
+   background: #285276 !important;
+}
+
+
+
+
+
+.aplayer.aplayer-withlist .aplayer-info {
+    border-bottom: 1px solid #0d0923 !important;
+}
+
+.MuiIconButton-root {
+   flex: 0 0 auto;
+   color: rgb(255 255 255 / 100%) !important;
+}
+
+.aplayer-title {
+   font-size: 12px !important;
+   color: white !important;
+}
+.aplayer {
+   background-color: rgb(32, 13, 49) !important;
+   margin: 0 !important;
+}
+.aplayer-icon {
+   display: none !important;
+}
+.aplayer-author {
+   opacity: .6 !important;
+   color: #ffffff !important;
+}
+
+
+
+.css-f7kz57 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .css-6lfql6 {
+    height: 175px !important;
+}    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .css-6lfql6 {
+    height: 175px !important;
+} 
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .css-6lfql6 {
+    height: 365px !important;
+} 
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .css-6lfql6 {
+    height: 444px !important;
+} 
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .css-xy8c7v {
+    height: 444px !important;
+} 
+}
+
+
+
+.instac {
+margin-bottom: 20px !important;
+}
