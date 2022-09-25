@@ -1,2 +1,2 @@
-# BS9-Player1
+# BS9-Player
 A simple one page music player.
