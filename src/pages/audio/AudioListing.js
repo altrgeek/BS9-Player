@@ -95,7 +95,7 @@ export default function AudioListing() {
         <Toolbar>
           {/* <CameraIcon sx={{ mr: 2 }} /> */}
           <Typography variant="h6" color="inherit" noWrap>
-            Planet Q Production
+            BS9 Player
           </Typography>
         </Toolbar>
       </AppBar>

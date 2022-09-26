@@ -129,7 +129,7 @@ export default function AddNewAudio() {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Planet Q Production
+            BS9 Player
           </Typography>
         </Toolbar>
       </AppBar>
