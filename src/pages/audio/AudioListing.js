@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import { useNavigate,useLocation} from "react-router-dom";
 import axios from 'axios';
-// import CameraIcon from '@mui/icons-material/PhotoCamera';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -13,8 +12,6 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { DataGrid } from '@mui/x-data-grid';
 import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditSharpIcon from '@mui/icons-material/EditSharp';
 import { toast } from 'react-toastify';
 import { Navigation } from '@material-ui/icons';
 
@@ -42,9 +39,7 @@ export default function AudioListing() {
 
    useEffect(() => {
       getAudioList();
-      // console.log(location);
-      // console.log(location.state)
-      //console.log(location.state.token);
+
       if(location && location.state && location.state.token!== "Token"){
         navigate("/login");
       }

@@ -9,8 +9,6 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Layout from './comps/Layout';
 import { ThemeProvider } from '@mui/system';
 import theme from './theme/theme';
-import AboutUs from './pages/AboutUs';
-import Videos from './pages/Videos';
 import Login from './pages/Login';
 import AudioListing from './pages/audio/AudioListing';
 import AddAudio from './pages/audio/AddNewAudio';
