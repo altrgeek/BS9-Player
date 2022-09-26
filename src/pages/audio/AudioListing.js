@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import { useNavigate,useLocation} from "react-router-dom";
 import axios from 'axios';
-
 // import CameraIcon from '@mui/icons-material/PhotoCamera';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
@@ -20,6 +19,7 @@ import { toast } from 'react-toastify';
 import { Navigation } from '@material-ui/icons';
 
 
+
 const columns = [
    { field: 'id', headerName: 'ID', width: 70 },
    { field: 'title', headerName: 'Title', width: 200 },
@@ -32,8 +32,7 @@ const columns = [
 const theme = createTheme();
 
 export default function AudioListing() {
-  //const aduioURL = process.env.REACT_APP_PLANT_Q_APP_API_URL + "audio";
-  //const path = "http://localhost:8080/audio/";
+
   const path = "";
   
    let navigate = useNavigate();
@@ -58,32 +57,21 @@ export default function AudioListing() {
 
    const getAudioList = () => {
     let mounted = true;
-    //setAudios([{"id":123,"title":"Title No 1","artistName":"Moiz" ,"owner":"Moiz","audio": "songAB" }]);
-    axios.get("http://localhost:8080/audio/")
+    axios.get(`${process.env.REACT_APP_API_URL}`)
         .then(
             (response) => {
                 if (mounted) {
-                  //console.log(response);
                   setAudios(response.data.data);
                 }
             }).catch(function (error) {
               console.log(error);
     });
-    // axios.get("https://dummy.restapiexample.com/api/v1/employees")
-    //     .then(
-    //         (response) => {
-    //             // if (mounted) {
-    //             //   setAudios(response.data.data.audioList);
-    //             // }
-    //             console.log(response);
-    //         }).catch(function (error) {
-    //           console.log(error);
-    // });
+
     return () => mounted = false;
 }
   const deleteAudio = (id) => {
     setIsLoading(true);
-     axios.delete("http://localhost:8080/audio"+`/${id}`)
+     axios.delete(`${process.env.REACT_APP_API_URL}`+`/${id}`)
      .then(
       (response) => {
           //console.log('response', response);
@@ -98,26 +86,12 @@ export default function AudioListing() {
   }
   const update = (id) => {
     setIsLoading(true);
-    /*axios.post(aduioURL+`/${id}`)
-    .then(
-      (response) => {
-          console.log('response', response);
-          navigate('/audiolisting');
-          setIsLoading(false);
-          getAudioList();
-          toast.success("Audio item deleted successfully!");
-      }).catch(function (error) {
-        console.log(error);
-        setIsLoading(false);
-  
-      })*/
+
   }
    const addNewItem = () => {
       navigate('/add-audio',{state:{token:"Token"} ,});
    }
-  const editItem = (index) => {
-    navigate('/edit-audio',{state:{list:audios[index] ,token:"Token" }});
-  }
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -174,8 +148,6 @@ export default function AudioListing() {
                   <td>{ audio?.artistName }</td>
                   <td>{ audio?.owner }</td>
                   <td>{ audio?.audioFileName }</td>
-                  <td><DeleteIcon onClick={ () => deleteAudio(audio.id)} /></td>
-                  <td><EditSharpIcon onClick={ () => editItem(index)} /></td>
                 </tr>
                 )
               }) : <p>No data added yet</p> }

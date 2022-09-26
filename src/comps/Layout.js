@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
    const getAudioList = () => {
 
       
-      axios.get("http://localhost:8080/audio/")
+      axios.get(`${process.env.REACT_APP_API_URL}`)
           .then(
               (response) => {                 
                     

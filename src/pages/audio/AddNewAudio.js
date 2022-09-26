@@ -68,16 +68,16 @@ export default function AddNewAudio() {
     form.append('title', title);
     form.append('artistName', artistName);
     form.append('owner', owner);
-    form.append('thumbnail', await thumbnail);
-    form.append('audioFile', await audioFile);
+    form.append('thumbnail', thumbnail);
+    form.append('audioFile', audioFile);
 
     const config = {
       method: 'post',
-      url: 'http://localhost:8080/audio',
+      url: `${process.env.REACT_APP_API_URL}`,
       data: form
     }
 
-    const promise = await axios(config)
+    const promise = axios(config)
       .then((response) => {
 
         if (response.status == 200) {

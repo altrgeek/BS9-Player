@@ -13,7 +13,6 @@ import AboutUs from './pages/AboutUs';
 import Videos from './pages/Videos';
 import Login from './pages/Login';
 import AudioListing from './pages/audio/AudioListing';
-import EditAudio from './pages/audio/EditAudio';
 import AddAudio from './pages/audio/AddNewAudio';
 
 
@@ -50,13 +49,7 @@ function App() {
                         <AddAudio />
                   }
                />
-               <Route
-                  path='/edit-audio'
-                  element={
-                        <EditAudio />
-                  }
-               />
-               
+              
             </Routes>
             <ToastContainer
                     hideProgressBar
