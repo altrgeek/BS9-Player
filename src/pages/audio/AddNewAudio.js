@@ -37,27 +37,25 @@ export default function AddNewAudio() {
     navigate('/audioListing', { state: { token: "Token" } });
   }
 
-  const HandleChanget = (event) => {
+  const HandleTitle = (event) => {
     event.preventDefault();
-    setTitle(...title, event.target.value)
+    setTitle(event.target.value)
   }
 
-  const HandleChangea = (event) => {
+  const HandleArtist = (event) => {
     event.preventDefault();
-    setartistName(...artistName, event.target.value)
+    setartistName(event.target.value)
   }
 
-  const HandleChangeo = (event) => {
+  const HandleOwner = (event) => {
     event.preventDefault();
-    setOwner(...owner, event.target.value)
+    setOwner(event.target.value)
   }
 
   const HandleThumbnail = (event) => {
-    //let value = (event.target.files[0]);
     setThumbnail(event.target.files[0]);
   }
   const HandleAudioFile = (event) => {
-    //let value = (event.target.files[0]);
     setAudioFile(event.target.files[0]);
   }
 
@@ -116,11 +114,11 @@ export default function AddNewAudio() {
       }
     );
 
-    console.log("title", title);
+/*     console.log("title", title);
     console.log("artistName", artistName);
     console.log("owner", owner);
     console.log("thumbnail", thumbnail);
-    console.log("audioFile", audioFile);
+    console.log("audioFile", audioFile); */
 
 
   }
@@ -161,21 +159,21 @@ export default function AddNewAudio() {
                   type="text"
                   name="title"
                   placeholder="Song title"
-                  onChange={HandleChanget}
+                  onChange={HandleTitle}
                 />
                 <br />
                 <input
                   type="text"
                   name="artistName"
                   placeholder="Artist Name"
-                  onChange={HandleChangea}
+                  onChange={HandleArtist}
                 />
                 <br />
                 <input
                   type="text"
                   name="owner"
                   placeholder="Owner"
-                  onChange={HandleChangeo}
+                  onChange={HandleOwner}
                 />
                 <br />
                 <input
