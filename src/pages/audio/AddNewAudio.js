@@ -7,6 +7,8 @@ import Toolbar from '@mui/material/Toolbar';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import { Box, Button, Container, Link, Grid, TextField, Typography } from '@mui/material';
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+
 
 
 const theme = createTheme();
@@ -19,19 +21,21 @@ export default function AddNewAudio() {
   const [owner, setOwner] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [audioFile, setAudioFile] = useState("");
+  const [thumbnailName, setThumbnailName] = useState();
+  const [audioFileName, setAudioFileName] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
 
-    if(location && location.state && location.state.token!== "Token"){
+    if (location && location.state && location.state.token !== "Token") {
       navigate("/login");
     }
-    else if(location == null || location.state== null || location.state.token== null)
-    {
+    else if (location == null || location.state == null || location.state.token == null) {
       navigate("/login");
     }
     // }
- }, [])
+  }, [])
+
 
   const backToListing = () => {
     navigate('/audioListing', { state: { token: "Token" } });
@@ -53,11 +57,16 @@ export default function AddNewAudio() {
   }
 
   const HandleThumbnail = (event) => {
-    setThumbnail(event.target.files[0]);
+    let file = event.target.files[0];
+    setThumbnailName(file.name);
+    setThumbnail(file);
   }
   const HandleAudioFile = (event) => {
-    setAudioFile(event.target.files[0]);
+    let file = event.target.files[0];
+    setAudioFile(file);
+    setAudioFileName(file.name)
   }
+
 
   const FileUploadHandler = async (event) => {
     setIsLoading(true);
@@ -114,11 +123,11 @@ export default function AddNewAudio() {
       }
     );
 
-/*     console.log("title", title);
-    console.log("artistName", artistName);
-    console.log("owner", owner);
-    console.log("thumbnail", thumbnail);
-    console.log("audioFile", audioFile); */
+    /*     console.log("title", title);
+        console.log("artistName", artistName);
+        console.log("owner", owner);
+        console.log("thumbnail", thumbnail);
+        console.log("audioFile", audioFile); */
 
 
   }
@@ -133,7 +142,7 @@ export default function AddNewAudio() {
       </AppBar>
       <main>
         <Box
-          style={{ background: "white", margin: "2%" }}
+          style={{ background: "white", margin: "auto" }}
           sx={{
             bgcolor: 'background.paper',
             pt: 8,
@@ -153,48 +162,97 @@ export default function AddNewAudio() {
               </Grid>
             </Grid>
 
-            <div>
-              <form encType="multipart/form">
-                <input
-                  type="text"
+            <div style={{ height: 750, width: '100%', display: 'block', overflow: 'auto' }}>
+
+              <form onSubmit={FileUploadHandler}>
+                <Box sx={{ my: 3 }}>
+                  <Typography
+                    color="textPrimary"
+                    variant="h4"
+                  >
+                    Add new item
+                  </Typography>
+                </Box>
+
+                <TextField
+                  fullWidth
+                  margin="normal"
                   name="title"
-                  placeholder="Song title"
+                  type="text"
+                  className="form-control input-group m-b-0"
+                  placeholder="Enter title"
                   onChange={HandleTitle}
                 />
-                <br />
-                <input
-                  type="text"
+
+                <TextField
+                  fullWidth
+                  margin="normal"
                   name="artistName"
-                  placeholder="Artist Name"
+                  placeholder="Enter artist name"
+                  type="text"
                   onChange={HandleArtist}
                 />
-                <br />
-                <input
-                  type="text"
+                <TextField
+                  fullWidth
+                  margin="normal"
                   name="owner"
-                  placeholder="Owner"
+                  type="text"
+                  placeholder="Enter owner name"
                   onChange={HandleOwner}
                 />
-                <br />
-                <input
-                  type="file"
-                  name="thumbnail"
-                  placeholder="Upload your file"
-                  onChange={HandleThumbnail}
-                />
-                <br />
-                <input
-                  type="file"
-                  name="audioFile"
-                  placeholder="Upload your file"
-                  onChange={HandleAudioFile}
-                />
-                <br />
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  onClick={FileUploadHandler}
-                >Submit</button>
+                <Typography className="text-center upload-resume m-auto"
+                  style={{
+                    border: "1px dashed #696871",
+                    padding: "20px",
+                    height: "5em",
+                    marginBottom: "10px",
+                    borderRadius: "8px"
+                  }}>
+
+                  <Button
+                    component="label"
+                    variant="outlined"
+                    startIcon={<UploadFileIcon />}
+                    sx={{ marginRight: "1rem" }}
+                  >
+                    Upload Thumbnail
+                    <input type="file" name="thumbnail" accept="image/*" hidden onChange={HandleThumbnail} />
+                  </Button><Link className="sub-text-color f-13 textEllipse w-200" underline="hover">{thumbnailName}</Link>
+
+                </Typography>
+
+                <Typography className="text-center upload-resume m-auto"
+                  style={{
+                    border: "1px dashed #696871",
+                    padding: "20px",
+                    height: "5em",
+                    margin: "2px",
+                    borderRadius: "8px"
+                  }}>
+                  <Button
+                    component="label"
+                    variant="outlined"
+                    startIcon={<UploadFileIcon />}
+                    sx={{ marginRight: "1rem" }}
+                  >
+                    Upload Audio File
+                    <input type="file" name="audioFile" accept="audio/*" hidden onChange={HandleAudioFile} />
+                  </Button><Link className="sub-text-color f-13 textEllipse w-200" underline="hover">{audioFileName}</Link>
+
+                </Typography>
+
+                <Box sx={{ py: 2 }}>
+                  <Button
+                    color="primary"
+                    fullWidth
+                    size="large"
+                    type="submit"
+                    variant="contained"
+                    disabled={isLoading}
+                  >
+                    Save
+                  </Button>
+                </Box>
               </form>
             </div>
           </Container>
