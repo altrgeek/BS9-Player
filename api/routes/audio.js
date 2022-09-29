@@ -5,6 +5,8 @@ const multer = require('multer')
 const baseUrl = "http://localhost:8080/audio/";
 const mongoose = require('mongoose');
 
+
+
 const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     console.log('filename')
@@ -32,12 +34,9 @@ router.get('/', async (req, res) => {
 
 
 router.get('/:id', function(req, res, next) {
-
-
-  var id = req.params.id
-  Audio.findById(id)        
-      .lean().exec(function (err, results) {
-      if (err) return console.error(err)
+ 
+  Audio.Item.findOne().where({ _id: item.id }).exec((err, i) =>  {
+ if (err) return console.error(err)
       try {
           console.log(results)            
       } catch (error) {
@@ -53,6 +52,8 @@ router.get('/:id', function(req, res, next) {
     })
 
   });
+ 
+
 
 const CounterSchema={
   id: { type: String }, seq: {type: Number}

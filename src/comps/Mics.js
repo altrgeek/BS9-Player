@@ -56,7 +56,7 @@ const RainBox = styled(Box)(({ theme }) => ({
     justifyContent: 'center',
     backgroundColor: 'black',
     width: '100%',
-    height: '335px',
+    height: '265px',
     backgroundPosition: 'center',
 }));
 

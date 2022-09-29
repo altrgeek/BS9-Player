@@ -13,11 +13,9 @@ import {
 //import { theme } from '@material-ui/core/styles';//
 //import { createTheme } from '@mui/material';
 
-
-
 const HeaderWrapper = styled(Box)(({ theme }) => ({
    backgroundColor: theme.palette.primary.main,
-   padding: '3rem 1rem',
+   padding: '1rem 1rem',
 }));
 
 const Flex = styled(Box)(({ theme }) => ({
@@ -87,5 +85,4 @@ const Header = () => {
       </HeaderWrapper>
    );
 };
-
 export default Header;

@@ -10,8 +10,7 @@ import Layout from './comps/Layout';
 import { ThemeProvider } from '@mui/system';
 import theme from './theme/theme';
 import Login from './pages/Login';
-import AudioListing from './pages/audio/AudioListing';
-import AddAudio from './pages/audio/AddNewAudio';
+import AudioListing from './pages/AudioListing';
 
 
 function App() {
@@ -39,14 +38,10 @@ function App() {
                   path='/audiolisting'
                   element={
                         <AudioListing />
+
                   }
                />
-               <Route
-                  path='/add-audio'
-                  element={
-                        <AddAudio />
-                  }
-               />
+
               
             </Routes>
             <ToastContainer

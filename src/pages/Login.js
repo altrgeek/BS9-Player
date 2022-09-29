@@ -32,7 +32,7 @@ const Login = () => {
           'Password is required')
     }),
     onSubmit: (data) => {
-      if(data.email === "demo@example.io" && data.password === "Pass123" ){
+      if(data.email === "demo@example.com" && data.password === "1234567890" ){
         navigate('/AudioListing',{state:{token:"Token"} });
         setIsSubmitting(true);
       }

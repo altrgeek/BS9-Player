@@ -6,11 +6,12 @@
 
 body {
    box-sizing: border-box;
-   height: 100vh;
-   background-image: url(./media/background.webp);
-   background-attachment: fixed;
-   background-size: cover;
    color: #fff;
+   
+}
+
+:root {
+   background-color: #000000;
 }
 
 .aplayer-controller {

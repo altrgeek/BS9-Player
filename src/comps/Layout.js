@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
                         name: item.title,
                         artist : item.artistName,
                         url: item.audioFile,
-                        cover: item.thumnail,
+                        cover: item.thumbnail,
                      });                                               
                     });
                     //console.log(trackList); 
